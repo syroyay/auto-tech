@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoTech Solutions - Professional Car Accessories & Technology</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .top-nav {
+            background: #000000;
+            color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 12px 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            background: #333333;
+        }
+
+        /* Big Header Section */
+        .big-header {
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .header-text {
+            z-index: 2;
+        }
+
+        .header-text h1 {
+            font-size: 64px;
+            font-weight: 900;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .header-text p {
+            font-size: 24px;
+            color: #cccccc;
+            margin-bottom: 40px;
+            line-height: 1.4;
+            font-weight: 300;
+        }
+
+        .header-cta {
+            display: inline-block;
+            background: #ffffff;
+            color: #000000;
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-cta:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .header-image {
+            position: relative;
+            height: 600px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            border: 3px solid #ffffff;
+        }
+
+        .header-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-placeholder {
+            position: relative;
+            z-index: 2;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 120px 0;
+            background: #ffffff;
+        }
+
+        .products-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .products-title h2 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #000000;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border: 2px solid #f0f0f0;
+            border-radius: 16px;
+            padding: 0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-color: #000000;
+        }
+
+        .product-image {
+            height: 300px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: #666666;
+            border-radius: 14px 14px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-content {
+            padding: 32px;
+            text-align: center;
+        }
+
+        .product-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .product-card p {
+            color: #666666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .product-button {
+            background: #000000;
+            color: #ffffff;
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 2px solid #000000;
+        }
+
+        .product-button:hover {
+            background: #ffffff;
+            color: #000000;
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 120px 0;
+            background: #f8f8f8;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 900;
+            color: #000000;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: #666666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            text-align: center;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: #000000;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: #000000;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: white;
+            font-size: 32px;
+        }
+
+        .feature-item h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 16px;
+        }
+
+        .feature-item p {
+            color: #666666;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            background: #000000;
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333333;
+            padding-top: 24px;
+            text-align: center;
+            color: #cccccc;
+            font-size: 14px;
+        }
+
+        /* Product Page Styles */
+        .product-page {
+            display: none;
+            min-height: 100vh;
+            background: #ffffff;
+            padding-top: 80px;
+        }
+
+        .product-page.active {
+            display: block;
+        }
+
+        .main-content {
+            display: block;
+        }
+
+        .main-content.hidden {
+            display: none;
+        }
+
+        .product-hero {
+            background: #f8f8f8;
+            padding: 80px 0;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+        }
+
+        .product-hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .product-hero-image {
+            height: 500px;
+            background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            color: #666666;
+            border: 2px solid #ddd;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px;
+        }
+
+        .product-hero-text h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #000000;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .product-hero-text .price {
+            font-size: 36px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        .product-hero-text .description {
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .back-button {
+            background: #ffffff;
+            color: #000000;
+            border: 2px solid #000000;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-right: 16px;
+            text-transform: uppercase;
+        }
+
+        .back-button:hover {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .buy-button {
+            background: #000000;
+            color: #ffffff;
+            border: 2px solid #000000;
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        .buy-button:hover {
+            background: #ffffff;
+            color: #000000;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Blog Section Styles */
+        .blog-content {
+            margin-top: 60px;
+        }
+
+        .blog-article {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 2px solid #f0f0f0;
+            overflow: hidden;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .blog-image-large {
+            height: 400px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            color: #666666;
+            position: relative;
+            border-bottom: 2px solid #f0f0f0;
+            overflow: hidden;
+        }
+
+        .blog-image-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 40px;
+        }
+
+        .blog-text {
+            padding: 48px;
+        }
+
+        .blog-text h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 32px;
+            line-height: 1.2;
+        }
+
+        .blog-text p {
+            color: #333333;
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            text-align: justify;
+        }
+
+        .blog-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .header-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+                padding: 0 20px;
+            }
+
+            .header-text h1 {
+                font-size: 42px;
+            }
+
+            .header-text p {
+                font-size: 18px;
+            }
+
+            .header-image {
+                height: 400px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .products-title h2,
+            .section-title {
+                font-size: 36px;
+            }
+
+            .product-hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .product-hero-text h1 {
+                font-size: 36px;
+            }
+
+            .product-hero-image {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-text h1 {
+                font-size: 32px;
+            }
+
+            .products-title h2,
+            .section-title {
+                font-size: 28px;
+            }
+
+            .product-hero-text h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#home" class="logo">AutoTech Solutions</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Pages -->
+    <div id="mobile-solutions-page" class="product-page">
+        <div class="product-hero">
+            <div class="container">
+                <div class="product-hero-content">
+                    <div class="product-hero-image">
+                        <img src="images/car-seat-gap-filler.png" alt="2PCS Car Seat Gap Filler Organizer">
+                    </div>
+
+                    <div class="product-hero-text">
+                        <h1>2PCS Car Seat Gap Filler Organizer With Phone Holder And Key Holder</h1>
+
+                        <div class="price">€9.99 - €12.88</div>
+                        <div class="description">Fill the gaps to prevent items from falling, between the car seat gap
+                            filler can perfectly fill the gap between the car seat and the center console, Effectively
+                            preventing keys, smartphones, earplugs, credit cards, coins, And other small items from
+                            falling out of the gap, Keeping the car clean and tidy, Avoid distracting your driving
+                            attention and improve driving safety workspace.</div>
+                        <a href="#" class="back-button" onclick="goHome()">← Back to Products</a>
+                        <a href="#" class="buy-button" onclick="buyProduct('mobile-solutions')">Buy on Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="power-charging-page" class="product-page">
+        <div class="product-hero">
+            <div class="container">
+                <div class="product-hero-content">
+                    <div class="product-hero-image">⚡</div>
+                    <div class="product-hero-text">
+                        <h1>Car Registration and Insurance Holder </h1>
+                        <div class="price">€19.99 - €129.99</div>
+                        <div class="description">Advanced charging infrastructure including fast-charge adapters,
+                            wireless charging, and comprehensive power management for all your automotive electrical
+                            needs.</div>
+                        <a href="#" class="back-button" onclick="goHome()">← Back to Products</a>
+                        <a href="#" class="buy-button" onclick="buyProduct('power-charging')">Buy on Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="security-monitoring-page" class="product-page">
+        <div class="product-hero">
+            <div class="container">
+                <div class="product-hero-content">
+                    <div class="product-hero-image">📹</div>
+                    <div class="product-hero-text">
+                        <h1>Screen Cleaner for Car</h1>
+                        <div class="price">€79.99 - €299.99</div>
+                        <div class="description">Professional-grade dash cameras and security systems with 4K recording,
+                            night vision, and advanced monitoring capabilities for complete vehicle protection.</div>
+                        <a href="#" class="back-button" onclick="goHome()">← Back to Products</a>
+                        <a href="#" class="buy-button" onclick="buyProduct('security-monitoring')">Buy on Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="maintenance-solutions-page" class="product-page">
+        <div class="product-hero">
+            <div class="container">
+                <div class="product-hero-content">
+                    <div class="product-hero-image">🔧</div>
+                    <div class="product-hero-text">
+                        <h1>DiliDala Handheld Vacuum Cleaner Battery</h1>
+                        <div class="price">€24.99 - €159.99</div>
+                        <div class="description">Professional automotive care products and tools for optimal vehicle
+                            maintenance, detailing excellence, and long-term preservation of your investment.</div>
+                        <a href="#" class="back-button" onclick="goHome()">← Back to Products</a>
+                        <a href="#" class="buy-button" onclick="buyProduct('maintenance-solutions')">Buy on Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="audio-technology-page" class="product-page">
+        <div class="product-hero">
+            <div class="container">
+                <div class="product-hero-content">
+                    <div class="product-hero-image">🔊</div>
+                    <div class="product-hero-text">
+                        <h1>Wireless CarPlay Adapter</h1>
+                        <div class="price">€39.99 - €199.99</div>
+                        <div class="description">High-fidelity audio solutions including Bluetooth adapters, wireless
+                            connectivity systems, and premium sound enhancement for the ultimate driving experience.
+                        </div>
+                        <a href="#" class="back-button" onclick="goHome()">← Back to Products</a>
+                        <a href="#" class="buy-button" onclick="buyProduct('audio-technology')">Buy on Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="protection-systems-page" class="product-page">
+        <div class="product-hero">
+            <div class="container">
+                <div class="product-hero-content">
+                    <div class="product-hero-image">🛡️</div>
+                    <div class="product-hero-text">
+                        <h1> car cover</h1>
+                        <div class="price">€49.99 - €249.99</div>
+                        <div class="description">Comprehensive vehicle protection including weather-resistant covers,
+                            interior safeguarding solutions, and advanced protective systems for complete peace of mind.
+                        </div>
+                        <a href="#" class="back-button" onclick="goHome()">← Back to Products</a>
+                        <a href="#" class="buy-button" onclick="buyProduct('protection-systems')">Buy on Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+
+        <main>
+            <section class="big-header" id="home">
+                <div class="header-content">
+                    <div class="header-text">
+                        <h1>Premium Car Technology Solutions</h1>
+                        <p>Transform your driving experience with cutting-edge automotive accessories and
+                            professional-grade technology solutions.</p>
+                        <a href="#products" class="header-cta">Shop Now</a>
+                    </div>
+                    <div class="header-image">
+                        <img src="images/car-home.png" alt="AutoTech Solutions">
+                    </div>
+                </div>
+            </section>
+
+            <section class="products-section" id="products">
+                <div class="container">
+                    <div class="products-title">
+                        <h2>Products</h2>
+                    </div>
+                    <div class="products-grid">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/car-seat-gap-filler.png" alt="2PCS Car Seat Gap Filler Organizer">
+                            </div>
+                            <div class="product-content">
+                                <h3> Car Seat Gap Filler </h3>
+                                <p>Prevents items from falling into gaps while providing convenient storage. High-quality polyurethane with leather-like texture.</p>
+                                <a href="car-seat-gap-filler.html" class="product-button">View
+                                    Product</a>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/car-registration-holder.png" alt="Car Registration and Insurance Holder">
+                            </div>
+                            <div class="product-content">
+                                <h3>Leather Car Document Holder</h3>
+                                <p>Premium PU leather organizer with clear PVC pouches. Magnetic closure, 6 pockets, perfect 9.5" x 5.1" size.</p>
+                                <a href="car-registration-holder.html" class="product-button">View
+                                    Product</a>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/car-screen-window.png" alt="Screen Cleaner for Car">
+                            </div>
+                            <div class="product-content">
+                                <h3>Screen & Display Cleaner</h3>
+                                <p>Multi-purpose cleaner for phones, tablets, monitors, car displays. Alcohol-free, refillable, eco-friendly 10.5ml.</p>
+                                <a href="screen-cleaner.html" class="product-button">View
+                                    Product</a>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/hand-held-cleaner.png" alt="DiliDala Handheld Vacuum Cleaner">
+                            </div>
+                            <div class="product-content">
+                                <h3> Handheld Vacuum Cleaner</h3>
+                                <p>Powerful cordless vacuum with 9000Pa suction for thorough car cleaning. Long-lasting battery and versatile attachments.</p>
+                                <a href="handheld-vacuum.html" class="product-button">View Product</a>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/wireless-carplay-adapter.jpg" alt="Wireless CarPlay Adapter">
+                            </div>
+                            <div class="product-content">
+                                <h3>Wireless CarPlay Adapter</h3>
+                                <p>Convert wired CarPlay to wireless instantly. Automatic connection, 5GHz WiFi for lag-free performance.</p>
+                                <a href="wireless-carplay.html" class="product-button">View
+                                    Product</a>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/car-cover.png" alt="Car Cover">
+                            </div>
+                            <div class="product-content">
+                                <h3>Full Car Cover</h3>
+                                <p>Reliable protection from scratches, dust, and weather. Easy installation with elastic hem. Includes storage bag.</p>
+                                <a href="car-cover.html" class="product-button">View
+                                    Product</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features-section" id="blog">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Product Review</h2>
+                        <p class="section-subtitle">My Personal Experience with the DiliDala Handheld Car Vacuum Cleaner</p>
+                    </div>
+                    <div class="blog-content">
+                        <article class="blog-article">
+                            <div class="blog-image-large">
+                                <img src="images/hand-held-cleaner.png" alt="Automotive Technology">
+                            </div>
+                            <div class="blog-text">
+                                <h3>DiliDala Handheld Car Vacuum: A Game-Changer for Car Owners ⭐⭐⭐⭐⭐</h3>
+                                <p><strong>Rating: 10/10 - An Absolute Must-Have!</strong></p>
+                                
+                                <p>After months of struggling with crumbs, pet hair, and dust in my car, I finally invested in the DiliDala Handheld Car Vacuum Cleaner, and I'm blown away! This powerful little device has completely transformed how I maintain my vehicle's cleanliness.</p>
+
+                                <p><strong>Incredible Suction Power That Actually Works</strong><br>
+                                The first thing that impressed me was the 25000PA suction power. With its upgraded high-speed motor, this cordless vacuum effortlessly removes everything from stubborn pet hair to fine sand particles. The 3-speed settings (7000pa, 17000pa, and 25000pa) give me complete control - I use the lower setting for light dusting and crank it up to maximum for those tough messes between the seats.</p>
+
+                                <p><strong>Freedom from Cords = Pure Convenience</strong><br>
+                                Being cordless is a game-changer! No more struggling with extension cords or being limited by outlet locations. The lightweight design and included portable bag mean I can clean my car anywhere - whether in my garage, at work, or even at a rest stop during road trips. Starting it is simple: just press and hold for 3 seconds, then tap to adjust the speed.</p>
+
+                                <p><strong>More Than Just a Vacuum</strong><br>
+                                What sets this vacuum apart is its versatility. The multipurpose accessories are genuinely useful:
+                                • The long nozzle reaches deep between seats
+                                • The brush attachment is perfect for upholstery
+                                • The hairdryer function has saved me multiple times (spilled coffee, anyone?)
+                                • The pet grooming brush is brilliant - my dog actually enjoys being vacuumed now!
+                                • The inflatable nozzle works great for pool toys and camping gear</p>
+
+                                <p><strong>Battery Life That Doesn't Disappoint</strong><br>
+                                With its 10000mAh battery, I get a solid 20-30 minutes of continuous use - more than enough to thoroughly clean my SUV inside and out. It charges fully in about 3 hours using a standard 5V/2A charger. Pro tip: avoid fast chargers to preserve battery life.</p>
+
+                                <p><strong>Premium Quality You Can Feel</strong><br>
+                                Everything about this vacuum feels premium, from the sturdy construction to the elegant hard plastic storage case. It's clear this isn't a cheap throwaway product - it's built to last. The storage bag keeps everything organized and looks professional in my trunk.</p>
+
+                                <p><strong>The Perfect Gift</strong><br>
+                                I've already bought two more as gifts - one for my dad for Father's Day and another for my sister's birthday. It's practical, high-quality, and something every car owner needs but might not buy for themselves. The presentation in its storage case makes it gift-ready.</p>
+
+                                <p><strong>Final Verdict: 5 Stars, 10/10!</strong><br>
+                                The DiliDala Car Vacuum Cleaner has exceeded all my expectations. It's powerful, versatile, well-built, and reasonably priced. If you're tired of a messy car or spending money at car washes just for interior cleaning, do yourself a favor and get this vacuum. Your car (and passengers) will thank you!</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2025 AutoTech Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Product page navigation
+        function openProductPage(productId) {
+            // Hide main content
+            document.querySelector('.main-content').classList.add('hidden');
+
+            // Hide all product pages
+            document.querySelectorAll('.product-page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show selected product page
+            const productPage = document.getElementById(productId + '-page');
+            if (productPage) {
+                productPage.classList.add('active');
+            }
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function goHome() {
+            // Hide all product pages
+            document.querySelectorAll('.product-page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show main content
+            document.querySelector('.main-content').classList.remove('hidden');
+
+            // Scroll to products section
+            document.getElementById('products').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        function buyProduct(productId) {
+            const amazonLinks = {
+                'mobile-solutions': 'https://www.amazon.com/Mtverver-Organizer-Upgrade-Essential-Accessories/dp/B0DJ5DB493?crid=2HLSHRR6NOB1&dib=eyJ2IjoiMSJ9.bscpHJJpy2boPQXD97sMUEy9FTO4PS9PhDQZv1y2ycmNjXnE1JZB1uT78a3ZJ-kFSrB3UKP6Q8nRJKHtNqiishSPpl2idy66BmsksMLuRJzGaVBZ82_jwLR3c9vVEDe0CuQPAE6ijJtKXB9lwfhfna34_c0IVokRM6w2rpexwdx7gbq4AkcV34oCPRptsxTO3hFU89K4tlvtVkVIJNfcp9nXJ4RS4gGkVdLkB_Y8Z2SZk-1fTdORduv73s2lv7ctlN9fcgxNJ0TjEEsIa9I66frf3q-3AOMH5yYjI1ydo2w.0azEwA6NnfqSLFaxlmTj4rXJZ-W8cAloNhucss68Uss&dib_tag=se&keywords=seat%2Bgap%2Bfiller&qid=1752835796&sprefix=seat%2Bgap%2Caps%2C555&sr=8-4-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll1&tag=autotechsolut-20&linkId=34fa373831493324194262ff33fef6dc&language=en_US&ref_=as_li_ss_tl=1=youraffiliateID',
+                'power-charging': 'https://www.amazon.com/CoBak-Registration-Insurance-Organizer-Accessories/dp/B09NYDYRJL/ref=sr_1_16?crid=10T67NMUHZKPO&dib=eyJ2IjoiMSJ9.x0pNklHJvSJ0TO0xIn5F93hBYacSwxH0nkOXITR2i4RAUvKf9RVWUYX0m_HnFn2ZA-xN-FXvFfx-lU7xY3ztUqJTLIskAEYrc6ooDCme6zCyJLUCVBs3pQe2dSq9yyo8tSmRj_XzyYAtHsSFHtsaKKPLhLbVQVBSa-nUYKZIfFUvaNcnfLcXyoJeBb-6HBfBwJwA4mZ8l41-94s-ld5wm6BaMYSYtMUZ0qv02rPPxLooOmJ1akK_gJII_K-8jWYAq6Nt8FEmGyZDUd7N8ta2jbiV2mt5g0LQjQzJDW2yYSc.n1_XE88f-3IS9Aiz-4m0YNTV_cT7VJsgOTtjATYd5ao&dib_tag=se&keywords=car%2Bgadgets&qid=1752842183&sprefix=car%2Bgad%2Caps%2C431&sr=8-16&th=1= youraffiliateID',
+                'security-monitoring': 'https://www.amazon.de/Handy-Reinigungsset-Bildschirmreiniger-Spray-All-One/dp/B0DJTCWSJP/ref=sr_1_86?crid=13X4FZ1FRKPGN&dib=eyJ2IjoiMSJ9.Li0EwYhxCUJYK6E7aYas0XRK3JdGBpPR5OEpL_z94FJyTUgynl37UWFnVjJnfQApb8A-Pp4SW1F5A_H7Ke6da6xzIDH7AqSklozGEzkoKZnCCkf7UeQrX9ypucc4dGI_6LbnKGdubrJdr5-s4H5JVJWwGOXLxpn98Z9-KOyz_7zXjcshdIXVbo_Cfq58nKxVmW56A15JXmSEFsHHxLhf2ObO_Ii1f7wrnbZTuBVsIllTjDsyMOzu0KGKALq9xk62NLrptXnQIyrgKxIgjShAvhZVqelWdXMQYbqPAFUSRm8.k4qeMoKEB9OKbNiGyP6nvE9pYVV3U7w-cKGjcLTd27U&dib_tag=se&keywords=car%2Baccessories&qid=1752842772&sprefix=car%2B%2Caps%2C297&sr=8-86&xpid=pg3k-aUZ0ITRi&th=1=youraffiliateID',
+                'maintenance-solutions': 'https://www.amazon.de/DiliDala-Handstaubsauger-Autostaubsauger-Elektrische-Staubgebl%C3%A4se/dp/B0DNDWFRT3/ref=sr_1_9?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=SB0JT9FWYIYB&dib=eyJ2IjoiMSJ9.9aPSUvKNoU-D8W2s5LisI4WIIk_9lekMifWIjxZAAhItaVt4w1cY94Vt5k3O8gBxhicbNu8uc5KnMVT3ESyZGlG_b2_giEjtPvoKRL8rvhAyLiEqF0q1PP5uamtomxPPsZDVLou1TfOC1svZMZ0vCebH-Iz4zKk0ricvQAVn7Hmu567Flrw3SJgfmsy3ClojMswwXaGQpecOf-AGeHX1qKtxE_NJdUBYblAKBpgEhbUmrreQMHr9HMpcZUOyKo3cMUmeKcHtn8HxIWY2uKcPwYS8r1K7CRrHC4r0q9gwBrg.KRTQLs1rpSLzjnvpIZhooCLcLdC6xVEmi1iohmMU6ck&dib_tag=se&keywords=car%2Bcleaner%2Bblow&qid=1752843169&sprefix=car%2Bcleaner%2Bblow%2Caps%2C212&sr=8-9&th=1=youraffiliateID',
+                'audio-technology': 'https://www.amazon.de/Wireless-kabelgebundenes-Mini-Format-Verbindung-Verz%C3%B6gerung-Schwarz-Schwarz/dp/B0FCFSVMV3/ref=sr_1_1_sspa?crid=F7CLEOVKYZ0E&dib=eyJ2IjoiMSJ9.tPtultEEcMS8MPIRPxTjNc1yR0PUYVukILYlk-4upazTIvrdLQjI9j9FuHEN1UnweUTsR5rr6w2l_2RjfGydqGfZuEUxsa1wrBoD1LQZkFsbV4KTOmjLhv1fSAuwbQoYvRgjbdL_9goQDi9ue3arNa56JabgVQ8yDnJBsNLvOiLosqwawwHa4wn_1MeM7GLrnql83HFTqeoUDwbdsWocDFuydfaHH1rMtPItuvbR3tM.uHHBTNcuevojyS5eLTKOXqMKasBjXjm7PB5_Zt7Q89Q&dib_tag=se&keywords=apple%2Bcar%2Bplay%2Bwireless%2Badapter&qid=1752843359&sprefix=apple%2Bcar%2Bplay%2B%2Caps%2C223&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1=youraffiliateID',
+                'protection-systems': 'https://www.amazon.de/Cartrend-Autoschutzdecke-Generation-Vollgarage-Polyester/dp/B005GU1BWA/ref=sr_1_1?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1XH3HD6X1MRD2&dib=eyJ2IjoiMSJ9.q85dWKoAnHc8dObEMBpdEIwZUe5Wr5gqAF79ANH1cUgaOXJjJpB9jWQecYgW-VNNZhzhEbnByjfG7dzfJvNZdDWVpRZM92HNDE0orRFJ9vT3TFA3GUaiA_0mxuL4XUwewOmAeVDQ5mlY9kqAyadXdT4w-wNaWVpjtN29AhGHaWRZgDGhbfPOZ8j_499ygYlP4vSq5MznaHDasHopsAnleTU0I4yY8yHhbubEbEIR4LgI0yn9NtgVKp97Kd5fLy4DBxiXFVu_QwE-KvbV3S5BZ8A9NrgkOs-g7QOODMi0NfA.SzI0kCpImdp90mD-6828uP0yY3r4ajTaYMk0pzIY2vQ&dib_tag=se&keywords=car%2Bcover&qid=1752843604&sprefix=car%2Bcove%2Caps%2C241&sr=8-1&th=1=youraffiliateID'
+            };
+
+            window.open(amazonLinks[productId] || 'https://amazon.de', '_blank');
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.product-card, .feature-item');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+
+</html>
