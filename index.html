@@ -1080,80 +1080,73 @@
                         <p class="section-subtitle">Discover why these products are essential for your car</p>
                     </div>
                     <div class="blog-grid">
-                        <article class="blog-preview" onclick="openBlogPost('car-seat-gap-review')">
+                        <article class="blog-preview" style="cursor: default;">
                             <div class="blog-preview-image">
                                 <img src="images/car-seat-gap-filler.png" alt="Car Seat Gap Filler Review">
                             </div>
                             <div class="blog-preview-content">
                                 <h3>Why You Need a Car Seat Gap Filler</h3>
                                 <p>Stop losing phones, keys, and coins in that annoying gap between your car seats...</p>
-                                <span class="read-more">Learn More →</span>
                             </div>
                         </article>
 
-                        <article class="blog-preview" onclick="openBlogPost('car-registration-review')">
+                        <article class="blog-preview" style="cursor: default;">
                             <div class="blog-preview-image">
                                 <img src="images/car-registration-holder.png" alt="Car Document Holder Review">
                             </div>
                             <div class="blog-preview-content">
                                 <h3>Why Every Driver Needs a Document Organizer</h3>
                                 <p>Keep your registration, insurance, and important papers organized and easily accessible...</p>
-                                <span class="read-more">Learn More →</span>
                             </div>
                         </article>
 
-                        <article class="blog-preview" onclick="openBlogPost('screen-cleaner-review')">
+                        <article class="blog-preview" style="cursor: default;">
                             <div class="blog-preview-image">
                                 <img src="images/car-screen-window.png" alt="Screen Cleaner Review">
                             </div>
                             <div class="blog-preview-content">
                                 <h3>Why Your Car Needs a Proper Screen Cleaner</h3>
                                 <p>Fingerprints and glare on your touchscreen can be dangerous. Here's the solution...</p>
-                                <span class="read-more">Learn More →</span>
                             </div>
                         </article>
 
-                        <article class="blog-preview" onclick="openBlogPost('handheld-vacuum-review')">
+                        <article class="blog-preview" style="cursor: default;">
                             <div class="blog-preview-image">
                                 <img src="images/hand-held-cleaner.png" alt="Handheld Vacuum Review">
                             </div>
                             <div class="blog-preview-content">
                                 <h3>Why a Handheld Vacuum is Essential for Your Car</h3>
                                 <p>Keep your car spotless without expensive car wash visits. Here's what you need to know...</p>
-                                <span class="read-more">Learn More →</span>
                             </div>
                         </article>
 
-                        <article class="blog-preview" onclick="openBlogPost('wireless-carplay-review')">
+                        <article class="blog-preview" style="cursor: default;">
                             <div class="blog-preview-image">
                                 <img src="images/wireless-carplay-adapter.jpg" alt="Wireless CarPlay Review">
                             </div>
                             <div class="blog-preview-content">
                                 <h3>Why Wireless CarPlay is a Game-Changer</h3>
                                 <p>Stop fumbling with cables every time you drive. Discover the wireless solution...</p>
-                                <span class="read-more">Learn More →</span>
                             </div>
                         </article>
 
-                        <article class="blog-preview" onclick="openBlogPost('car-cover-review')">
+                        <article class="blog-preview" style="cursor: default;">
                             <div class="blog-preview-image">
                                 <img src="images/car-cover.png" alt="Car Cover Review">
                             </div>
                             <div class="blog-preview-content">
                                 <h3>Why Your Car Needs Weather Protection</h3>
                                 <p>Protect your investment from hail, sun damage, and tree sap with the right cover...</p>
-                                <span class="read-more">Learn More →</span>
                             </div>
                         </article>
 
-                        <article class="blog-preview" onclick="openBlogPost('car-trash-bin-review')">
+                        <article class="blog-preview" style="cursor: default;">
                             <div class="blog-preview-image">
                                 <img src="images/car-bin.png" alt="Car Trash Bin Review">
                             </div>
                             <div class="blog-preview-content">
                                 <h3>Why a Car Trash Can is Essential</h3>
                                 <p>Keep your car clean and organized with this simple but effective solution...</p>
-                                <span class="read-more">Learn More →</span>
                             </div>
                         </article>
 
@@ -1224,7 +1217,7 @@
 
         function buyProduct(productId) {
             const amazonLinks = {
-                'mobile-solutions': '
+                'mobile-solutions': 'https://amazon.de',
                 'power-charging': 'https://www.amazon.com/CoBak-Registration-Insurance-Organizer-Accessories/dp/B09NYDYRJL/ref=sr_1_16?crid=10T67NMUHZKPO&dib=eyJ2IjoiMSJ9.x0pNklHJvSJ0TO0xIn5F93hBYacSwxH0nkOXITR2i4RAUvKf9RVWUYX0m_HnFn2ZA-xN-FXvFfx-lU7xY3ztUqJTLIskAEYrc6ooDCme6zCyJLUCVBs3pQe2dSq9yyo8tSmRj_XzyYAtHsSFHtsaKKPLhLbVQVBSa-nUYKZIfFUvaNcnfLcXyoJeBb-6HBfBwJwA4mZ8l41-94s-ld5wm6BaMYSYtMUZ0qv02rPPxLooOmJ1akK_gJII_K-8jWYAq6Nt8FEmGyZDUd7N8ta2jbiV2mt5g0LQjQzJDW2yYSc.n1_XE88f-3IS9Aiz-4m0YNTV_cT7VJsgOTtjATYd5ao&dib_tag=se&keywords=car%2Bgadgets&qid=1752842183&sprefix=car%2Bgad%2Caps%2C431&sr=8-16&th=1= youraffiliateID',
                 'security-monitoring': 'https://www.amazon.de/Handy-Reinigungsset-Bildschirmreiniger-Spray-All-One/dp/B0DJTCWSJP/ref=sr_1_86?crid=13X4FZ1FRKPGN&dib=eyJ2IjoiMSJ9.Li0EwYhxCUJYK6E7aYas0XRK3JdGBpPR5OEpL_z94FJyTUgynl37UWFnVjJnfQApb8A-Pp4SW1F5A_H7Ke6da6xzIDH7AqSklozGEzkoKZnCCkf7UeQrX9ypucc4dGI_6LbnKGdubrJdr5-s4H5JVJWwGOXLxpn98Z9-KOyz_7zXjcshdIXVbo_Cfq58nKxVmW56A15JXmSEFsHHxLhf2ObO_Ii1f7wrnbZTuBVsIllTjDsyMOzu0KGKALq9xk62NLrptXnQIyrgKxIgjShAvhZVqelWdXMQYbqPAFUSRm8.k4qeMoKEB9OKbNiGyP6nvE9pYVV3U7w-cKGjcLTd27U&dib_tag=se&keywords=car%2Baccessories&qid=1752842772&sprefix=car%2B%2Caps%2C297&sr=8-86&xpid=pg3k-aUZ0ITRi&th=1=youraffiliateID',
                 'maintenance-solutions': 'https://www.amazon.de/DiliDala-Handstaubsauger-Autostaubsauger-Elektrische-Staubgebl%C3%A4se/dp/B0DNDWFRT3/ref=sr_1_9?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=SB0JT9FWYIYB&dib=eyJ2IjoiMSJ9.9aPSUvKNoU-D8W2s5LisI4WIIk_9lekMifWIjxZAAhItaVt4w1cY94Vt5k3O8gBxhicbNu8uc5KnMVT3ESyZGlG_b2_giEjtPvoKRL8rvhAyLiEqF0q1PP5uamtomxPPsZDVLou1TfOC1svZMZ0vCebH-Iz4zKk0ricvQAVn7Hmu567Flrw3SJgfmsy3ClojMswwXaGQpecOf-AGeHX1qKtxE_NJdUBYblAKBpgEhbUmrreQMHr9HMpcZUOyKo3cMUmeKcHtn8HxIWY2uKcPwYS8r1K7CRrHC4r0q9gwBrg.KRTQLs1rpSLzjnvpIZhooCLcLdC6xVEmi1iohmMU6ck&dib_tag=se&keywords=car%2Bcleaner%2Bblow&qid=1752843169&sprefix=car%2Bcleaner%2Bblow%2Caps%2C212&sr=8-9&th=1=youraffiliateID',
