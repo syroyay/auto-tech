@@ -168,6 +168,94 @@
             background: #ffffff;
         }
 
+        /* Search and Filter Styles */
+        .search-filter-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .search-container {
+            position: relative;
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 16px 50px 16px 20px;
+            font-size: 16px;
+            border: 2px solid #f0f0f0;
+            border-radius: 50px;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .search-input:focus {
+            border-color: #ff9800;
+            box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #666666;
+            pointer-events: none;
+        }
+
+        .filter-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            color: #333333;
+            white-space: nowrap;
+        }
+
+        .price-filter {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #f0f0f0;
+            border-radius: 8px;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            background: #ffffff;
+            min-width: 180px;
+        }
+
+        .price-filter:hover {
+            border-color: #e0e0e0;
+        }
+
+        .price-filter:focus {
+            border-color: #ff9800;
+            box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.1);
+        }
+
+        .product-card.hidden {
+            display: none;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666666;
+            font-size: 18px;
+            grid-column: 1 / -1;
+        }
+
         .products-title {
             text-align: center;
             margin-bottom: 80px;
@@ -572,6 +660,21 @@
                 display: none;
             }
 
+            .search-filter-section {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .search-container {
+                width: 100%;
+                max-width: none;
+            }
+
+            .filter-container {
+                width: 100%;
+                justify-content: space-between;
+            }
+
             .header-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -791,6 +894,26 @@
                     <div class="products-title">
                         <h2>Products</h2>
                     </div>
+                    
+                    <!-- Search and Filter Section -->
+                    <div class="search-filter-section">
+                        <div class="search-container">
+                            <input type="text" id="productSearch" class="search-input" placeholder="Search products...">
+                            <span class="search-icon">🔍</span>
+                        </div>
+                        
+                        <div class="filter-container">
+                            <label for="priceFilter" class="filter-label">Filter by price:</label>
+                            <select id="priceFilter" class="price-filter">
+                                <option value="all">All Prices</option>
+                                <option value="0-20">Under €20</option>
+                                <option value="20-40">€20 - €40</option>
+                                <option value="40-60">€40 - €60</option>
+                                <option value="60+">Over €60</option>
+                            </select>
+                        </div>
+                    </div>
+                    
                     <div class="products-grid">
                         <div class="product-card">
                             <div class="product-image">
@@ -1018,7 +1141,98 @@
                 card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(card);
             });
+
+            // Initialize search and filter functionality
+            initializeSearchAndFilter();
         });
+
+        // Search and Filter Functionality
+        function initializeSearchAndFilter() {
+            const searchInput = document.getElementById('productSearch');
+            const priceFilter = document.getElementById('priceFilter');
+            const productCards = document.querySelectorAll('.product-card');
+            const productsGrid = document.querySelector('.products-grid');
+
+            // Add data attributes to product cards for filtering
+            const productData = [
+                { name: 'Car Seat Gap Filler', minPrice: 9.99, maxPrice: 12.88 },
+                { name: 'Leather Car Document Holder', minPrice: 19.99, maxPrice: 29.99 },
+                { name: 'Screen & Display Cleaner', minPrice: 11.95, maxPrice: 27.95 },
+                { name: 'Handheld Vacuum Cleaner', minPrice: 35.99, maxPrice: 54.59 },
+                { name: 'Wireless CarPlay Adapter', minPrice: 39.99, maxPrice: 39.99 },
+                { name: 'Full Car Cover', minPrice: 29.09, maxPrice: 36.00 }
+            ];
+
+            productCards.forEach((card, index) => {
+                if (productData[index]) {
+                    card.setAttribute('data-name', productData[index].name.toLowerCase());
+                    card.setAttribute('data-min-price', productData[index].minPrice);
+                    card.setAttribute('data-max-price', productData[index].maxPrice);
+                }
+            });
+
+            // Search functionality
+            searchInput.addEventListener('input', filterProducts);
+            searchInput.addEventListener('keyup', filterProducts);
+
+            // Price filter functionality
+            priceFilter.addEventListener('change', filterProducts);
+
+            function filterProducts() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const priceRange = priceFilter.value;
+                let visibleCount = 0;
+
+                productCards.forEach(card => {
+                    const productName = card.getAttribute('data-name');
+                    const minPrice = parseFloat(card.getAttribute('data-min-price'));
+                    const maxPrice = parseFloat(card.getAttribute('data-max-price'));
+
+                    // Check search term
+                    const matchesSearch = !searchTerm || productName.includes(searchTerm);
+
+                    // Check price filter
+                    let matchesPrice = true;
+                    if (priceRange !== 'all') {
+                        switch (priceRange) {
+                            case '0-20':
+                                matchesPrice = minPrice < 20;
+                                break;
+                            case '20-40':
+                                matchesPrice = minPrice < 40 && maxPrice >= 20;
+                                break;
+                            case '40-60':
+                                matchesPrice = minPrice < 60 && maxPrice >= 40;
+                                break;
+                            case '60+':
+                                matchesPrice = maxPrice >= 60;
+                                break;
+                        }
+                    }
+
+                    // Show or hide card
+                    if (matchesSearch && matchesPrice) {
+                        card.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                // Show no results message if needed
+                let noResultsMsg = productsGrid.querySelector('.no-results');
+                if (visibleCount === 0) {
+                    if (!noResultsMsg) {
+                        noResultsMsg = document.createElement('div');
+                        noResultsMsg.className = 'no-results';
+                        noResultsMsg.textContent = 'No products found matching your criteria.';
+                        productsGrid.appendChild(noResultsMsg);
+                    }
+                } else if (noResultsMsg) {
+                    noResultsMsg.remove();
+                }
+            }
+        }
     </script>
 </body>
 
