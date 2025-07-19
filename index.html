@@ -598,10 +598,77 @@
         }
 
         /* Blog Section Styles */
-        .blog-content {
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
             margin-top: 60px;
         }
 
+        .blog-preview {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 2px solid #f0f0f0;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .blog-preview:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-color: #ff9800;
+        }
+
+        .blog-preview-image {
+            height: 250px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .blog-preview-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px;
+        }
+
+        .blog-preview-content {
+            padding: 32px;
+        }
+
+        .blog-preview-content h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .blog-preview-content p {
+            color: #666666;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: #ff9800;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .blog-preview:hover .read-more {
+            transform: translateX(5px);
+            display: inline-block;
+        }
+
+        /* Blog Article Styles */
         .blog-article {
             background: #ffffff;
             border-radius: 16px;
@@ -1009,45 +1076,84 @@
             <section class="features-section" id="blog">
                 <div class="container">
                     <div class="section-header">
-                        <h2 class="section-title">Product Review</h2>
-                        <p class="section-subtitle">My Personal Experience with the Handheld Car Vacuum Cleaner</p>
+                        <h2 class="section-title">Product Reviews</h2>
+                        <p class="section-subtitle">Real experiences from real car owners</p>
                     </div>
-                    <div class="blog-content">
-                        <article class="blog-article">
-                            <div class="blog-image-large">
-                                <img src="images/hand-held-cleaner.png" alt="Automotive Technology">
+                    <div class="blog-grid">
+                        <article class="blog-preview" onclick="openBlogPost('car-seat-gap-review')">
+                            <div class="blog-preview-image">
+                                <img src="images/car-seat-gap-filler.png" alt="Car Seat Gap Filler Review">
                             </div>
-                            <div class="blog-text">
-                                <h3>Handheld Car Vacuum: A Game-Changer for Car Owners ⭐⭐⭐⭐⭐</h3>
-                                <p><strong>Rating: 10/10 - An Absolute Must-Have!</strong></p>
-                                
-                                <p>After months of struggling with crumbs, pet hair, and dust in my car, I finally invested in this Handheld Car Vacuum Cleaner, and I'm blown away! This powerful little device has completely transformed how I maintain my vehicle's cleanliness.</p>
+                            <div class="blog-preview-content">
+                                <h3>Finally, No More Lost Items Between Seats!</h3>
+                                <p>After dropping my phone between the seats for the hundredth time, I knew I needed a solution...</p>
+                                <span class="read-more">Read Full Review →</span>
+                            </div>
+                        </article>
 
-                                <p><strong>Incredible Suction Power That Actually Works</strong><br>
-                                The first thing that impressed me was the 25000PA suction power. With its upgraded high-speed motor, this cordless vacuum effortlessly removes everything from stubborn pet hair to fine sand particles. The 3-speed settings (7000pa, 17000pa, and 25000pa) give me complete control - I use the lower setting for light dusting and crank it up to maximum for those tough messes between the seats.</p>
+                        <article class="blog-preview" onclick="openBlogPost('car-registration-review')">
+                            <div class="blog-preview-image">
+                                <img src="images/car-registration-holder.png" alt="Car Document Holder Review">
+                            </div>
+                            <div class="blog-preview-content">
+                                <h3>The Document Organizer That Changed My Life</h3>
+                                <p>I used to panic every time I needed my registration. Not anymore...</p>
+                                <span class="read-more">Read Full Review →</span>
+                            </div>
+                        </article>
 
-                                <p><strong>Freedom from Cords = Pure Convenience</strong><br>
-                                Being cordless is a game-changer! No more struggling with extension cords or being limited by outlet locations. The lightweight design and included portable bag mean I can clean my car anywhere - whether in my garage, at work, or even at a rest stop during road trips. Starting it is simple: just press and hold for 3 seconds, then tap to adjust the speed.</p>
+                        <article class="blog-preview" onclick="openBlogPost('screen-cleaner-review')">
+                            <div class="blog-preview-image">
+                                <img src="images/car-screen-window.png" alt="Screen Cleaner Review">
+                            </div>
+                            <div class="blog-preview-content">
+                                <h3>Crystal Clear Screens in Seconds</h3>
+                                <p>This tiny bottle solved my biggest pet peeve about modern car displays...</p>
+                                <span class="read-more">Read Full Review →</span>
+                            </div>
+                        </article>
 
-                                <p><strong>More Than Just a Vacuum</strong><br>
-                                What sets this vacuum apart is its versatility. The multipurpose accessories are genuinely useful:
-                                • The long nozzle reaches deep between seats
-                                • The brush attachment is perfect for upholstery
-                                • The hairdryer function has saved me multiple times (spilled coffee, anyone?)
-                                • The pet grooming brush is brilliant - my dog actually enjoys being vacuumed now!
-                                • The inflatable nozzle works great for pool toys and camping gear</p>
+                        <article class="blog-preview" onclick="openBlogPost('handheld-vacuum-review')">
+                            <div class="blog-preview-image">
+                                <img src="images/hand-held-cleaner.png" alt="Handheld Vacuum Review">
+                            </div>
+                            <div class="blog-preview-content">
+                                <h3>The Vacuum That Made Me Cancel My Car Wash Membership</h3>
+                                <p>I was skeptical about cordless power, but this vacuum proved me wrong...</p>
+                                <span class="read-more">Read Full Review →</span>
+                            </div>
+                        </article>
 
-                                <p><strong>Battery Life That Doesn't Disappoint</strong><br>
-                                With its 10000mAh battery, I get a solid 20-30 minutes of continuous use - more than enough to thoroughly clean my SUV inside and out. It charges fully in about 3 hours using a standard 5V/2A charger. Pro tip: avoid fast chargers to preserve battery life.</p>
+                        <article class="blog-preview" onclick="openBlogPost('wireless-carplay-review')">
+                            <div class="blog-preview-image">
+                                <img src="images/wireless-carplay-adapter.jpg" alt="Wireless CarPlay Review">
+                            </div>
+                            <div class="blog-preview-content">
+                                <h3>Wireless Freedom: My CarPlay Experience</h3>
+                                <p>No more cable hassles. This adapter transformed my daily commute...</p>
+                                <span class="read-more">Read Full Review →</span>
+                            </div>
+                        </article>
 
-                                <p><strong>Premium Quality You Can Feel</strong><br>
-                                Everything about this vacuum feels premium, from the sturdy construction to the elegant hard plastic storage case. It's clear this isn't a cheap throwaway product - it's built to last. The storage bag keeps everything organized and looks professional in my trunk.</p>
+                        <article class="blog-preview" onclick="openBlogPost('car-cover-review')">
+                            <div class="blog-preview-image">
+                                <img src="images/car-cover.png" alt="Car Cover Review">
+                            </div>
+                            <div class="blog-preview-content">
+                                <h3>The Cover That Survived a Hailstorm</h3>
+                                <p>When the weather forecast showed hail, I was thankful I had this cover...</p>
+                                <span class="read-more">Read Full Review →</span>
+                            </div>
+                        </article>
 
-                                <p><strong>The Perfect Gift</strong><br>
-                                I've already bought two more as gifts - one for my dad for Father's Day and another for my sister's birthday. It's practical, high-quality, and something every car owner needs but might not buy for themselves. The presentation in its storage case makes it gift-ready.</p>
-
-                                <p><strong>Final Verdict: 5 Stars, 10/10!</strong><br>
-                                This Car Vacuum Cleaner has exceeded all my expectations. It's powerful, versatile, well-built, and reasonably priced. If you're tired of a messy car or spending money at car washes just for interior cleaning, do yourself a favor and get this vacuum. Your car (and passengers) will thank you!</p>
+                        <article class="blog-preview" onclick="openBlogPost('car-trash-bin-review')">
+                            <div class="blog-preview-image">
+                                <img src="images/car-bin.png" alt="Car Trash Bin Review">
+                            </div>
+                            <div class="blog-preview-content">
+                                <h3>The $12 Solution to My Messy Car Problem</h3>
+                                <p>Such a simple product, but it completely transformed how clean I keep my car...</p>
+                                <span class="read-more">Read Full Review →</span>
                             </div>
                         </article>
                     </div>
@@ -1126,6 +1232,23 @@
             };
 
             window.open(amazonLinks[productId] || 'https://amazon.de', '_blank');
+        }
+
+        // Blog post navigation
+        function openBlogPost(blogId) {
+            const blogUrls = {
+                'car-seat-gap-review': 'car-seat-gap-review.html',
+                'car-registration-review': 'car-registration-review.html',
+                'screen-cleaner-review': 'screen-cleaner-review.html',
+                'handheld-vacuum-review': 'handheld-vacuum-review.html',
+                'wireless-carplay-review': 'wireless-carplay-review.html',
+                'car-cover-review': 'car-cover-review.html',
+                'car-trash-bin-review': 'car-trash-bin-review.html'
+            };
+            
+            if (blogUrls[blogId]) {
+                window.location.href = blogUrls[blogId];
+            }
         }
 
         // Intersection Observer for animations
