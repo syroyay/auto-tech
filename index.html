@@ -903,13 +903,11 @@
                         </div>
                         
                         <div class="filter-container">
-                            <label for="priceFilter" class="filter-label">Filter by price:</label>
-                            <select id="priceFilter" class="price-filter">
-                                <option value="all">All Prices</option>
-                                <option value="0-20">Under €20</option>
-                                <option value="20-40">€20 - €40</option>
-                                <option value="40-60">€40 - €60</option>
-                                <option value="60+">Over €60</option>
+                            <label for="priceSort" class="filter-label">Sort by:</label>
+                            <select id="priceSort" class="price-filter">
+                                <option value="standard">Standard</option>
+                                <option value="low-high">Price: Low to High</option>
+                                <option value="high-low">Price: High to Low</option>
                             </select>
                         </div>
                     </div>
@@ -988,6 +986,19 @@
                                 <p>Reliable protection from scratches, dust, and weather. Easy installation with elastic hem. Includes storage bag.</p>
                                 <div class="product-price">€29.09 - €36.00</div>
                                 <a href="car-cover.html" class="product-button">View
+                                    Product</a>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/car-bin.png" alt="Mini Car Trash Can Bin">
+                            </div>
+                            <div class="product-content">
+                                <h3>Mini Car Trash Can Bin</h3>
+                                <p>Compact waterproof trash bin for vehicles. Fits in cup holders, keeps your car clean and organized.</p>
+                                <div class="product-price">€12.99 - €25.99</div>
+                                <a href="car-trash-bin.html" class="product-button">View
                                     Product</a>
                             </div>
                         </div>
@@ -1149,7 +1160,7 @@
         // Search and Filter Functionality
         function initializeSearchAndFilter() {
             const searchInput = document.getElementById('productSearch');
-            const priceFilter = document.getElementById('priceFilter');
+            const priceSort = document.getElementById('priceSort');
             const productCards = document.querySelectorAll('.product-card');
             const productsGrid = document.querySelector('.products-grid');
 
@@ -1160,7 +1171,8 @@
                 { name: 'Screen & Display Cleaner', minPrice: 11.95, maxPrice: 27.95 },
                 { name: 'Handheld Vacuum Cleaner', minPrice: 35.99, maxPrice: 54.59 },
                 { name: 'Wireless CarPlay Adapter', minPrice: 39.99, maxPrice: 39.99 },
-                { name: 'Full Car Cover', minPrice: 29.09, maxPrice: 36.00 }
+                { name: 'Full Car Cover', minPrice: 29.09, maxPrice: 36.00 },
+                { name: 'Mini Car Trash Can Bin', minPrice: 12.99, maxPrice: 25.99 }
             ];
 
             productCards.forEach((card, index) => {
@@ -1172,60 +1184,57 @@
             });
 
             // Search functionality
-            searchInput.addEventListener('input', filterProducts);
-            searchInput.addEventListener('keyup', filterProducts);
+            searchInput.addEventListener('input', filterAndSortProducts);
+            searchInput.addEventListener('keyup', filterAndSortProducts);
 
-            // Price filter functionality
-            priceFilter.addEventListener('change', filterProducts);
+            // Sort functionality
+            priceSort.addEventListener('change', filterAndSortProducts);
 
-            function filterProducts() {
+            function filterAndSortProducts() {
                 const searchTerm = searchInput.value.toLowerCase();
-                const priceRange = priceFilter.value;
-                let visibleCount = 0;
+                const sortOption = priceSort.value;
+                let visibleCards = [];
 
+                // Filter products based on search
                 productCards.forEach(card => {
                     const productName = card.getAttribute('data-name');
-                    const minPrice = parseFloat(card.getAttribute('data-min-price'));
-                    const maxPrice = parseFloat(card.getAttribute('data-max-price'));
-
-                    // Check search term
                     const matchesSearch = !searchTerm || productName.includes(searchTerm);
 
-                    // Check price filter
-                    let matchesPrice = true;
-                    if (priceRange !== 'all') {
-                        switch (priceRange) {
-                            case '0-20':
-                                matchesPrice = minPrice < 20;
-                                break;
-                            case '20-40':
-                                matchesPrice = minPrice < 40 && maxPrice >= 20;
-                                break;
-                            case '40-60':
-                                matchesPrice = minPrice < 60 && maxPrice >= 40;
-                                break;
-                            case '60+':
-                                matchesPrice = maxPrice >= 60;
-                                break;
-                        }
-                    }
-
-                    // Show or hide card
-                    if (matchesSearch && matchesPrice) {
+                    if (matchesSearch) {
                         card.classList.remove('hidden');
-                        visibleCount++;
+                        visibleCards.push(card);
                     } else {
                         card.classList.add('hidden');
                     }
                 });
 
+                // Sort visible cards
+                if (sortOption !== 'standard' && visibleCards.length > 0) {
+                    visibleCards.sort((a, b) => {
+                        const aMin = parseFloat(a.getAttribute('data-min-price'));
+                        const bMin = parseFloat(b.getAttribute('data-min-price'));
+                        
+                        if (sortOption === 'low-high') {
+                            return aMin - bMin;
+                        } else if (sortOption === 'high-low') {
+                            return bMin - aMin;
+                        }
+                        return 0;
+                    });
+
+                    // Reorder cards in the DOM
+                    visibleCards.forEach(card => {
+                        productsGrid.appendChild(card);
+                    });
+                }
+
                 // Show no results message if needed
                 let noResultsMsg = productsGrid.querySelector('.no-results');
-                if (visibleCount === 0) {
+                if (visibleCards.length === 0) {
                     if (!noResultsMsg) {
                         noResultsMsg = document.createElement('div');
                         noResultsMsg.className = 'no-results';
-                        noResultsMsg.textContent = 'No products found matching your criteria.';
+                        noResultsMsg.textContent = 'No products found matching your search.';
                         productsGrid.appendChild(noResultsMsg);
                     }
                 } else if (noResultsMsg) {
