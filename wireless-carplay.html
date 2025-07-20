@@ -43,11 +43,14 @@
         }
 
         .logo {
-            font-size: 28px;
-            font-weight: 900;
-            color: #ffffff;
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            letter-spacing: -0.02em;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
         }
 
         .nav-links {
@@ -497,7 +500,9 @@
     <nav class="top-nav">
         <div class="container">
             <div class="nav-container">
-                <a href="index.html" class="logo">CarGads Solutions</a>
+                <a href="index.html" class="logo">
+                    <img src="images/cargads.png" alt="CarGads" />
+                </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#products">Products</a></li>
