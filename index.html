@@ -2,6 +2,16 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D30XFLHE25"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-D30XFLHE25');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CarGads Solutions - Professional Car Accessories & Technology</title>
@@ -1372,13 +1382,13 @@ https://www.amazon.com/Mtverver-Organizer-Upgrade-Essential-Accessories/dp/B0DJ5
                 // Sort visible cards
                 if (sortOption !== 'standard' && visibleCards.length > 0) {
                     visibleCards.sort((a, b) => {
-                        const aMin = parseFloat(a.getAttribute('data-min-price'));
-                        const bMin = parseFloat(b.getAttribute('data-min-price'));
+                        const aMax = parseFloat(a.getAttribute('data-max-price'));
+                        const bMax = parseFloat(b.getAttribute('data-max-price'));
                         
                         if (sortOption === 'low-high') {
-                            return aMin - bMin;
+                            return aMax - bMax;
                         } else if (sortOption === 'high-low') {
-                            return bMin - aMin;
+                            return bMax - aMax;
                         }
                         return 0;
                     });
